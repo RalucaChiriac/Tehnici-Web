@@ -103,7 +103,7 @@ table caption {
     border-radius: 5px 5px 0 0;
 }
 
-.Table thead th, .Table tbody tr:nth-child(7) td, .Table tbody tr:nth-child(6) td:nth-child(1) {
+.Table thead th, .Table tbody tr:last-child td, .Table tbody tr:nth-last-child(2) td:nth-child(1) {
     border-bottom: 3px solid #ccc !important;
 }
 
@@ -123,15 +123,15 @@ table caption {
     border-right-color: blueviolet;
 }
 
-.Table tr:nth-child(6) td:nth-child(even) {
+.Table tr:nth-last-child(2) td:nth-child(even) {
     border-right-color: orange !important;
 }
 
-.Table tr:nth-child(6) td:nth-child(odd) {
+.Table tr:nth-last-child(2) td:nth-child(odd) {
     border-right-color: blueviolet !important;
 }
 
-.Table tbody tr:nth-child(1) td:nth-child(1), .Table tbody tr:nth-child(6) td:nth-child(1), .Table thead tr th:nth-child(1),
+.Table tbody tr:nth-child(1) td:nth-child(1), .Table tbody tr:nth-last-child(2) td:nth-child(1), .Table thead tr th:nth-child(1),
 .Table tfoot td
 {
     border-left-color: orange;
@@ -139,70 +139,6 @@ table caption {
 
 .Table tr:hover td {
     box-shadow: inset 0 0 10px 3px gold;
-}
-
-/* ------------------------- Meniu --------------- */
-
-.horizontal-menu {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    background-color: #f0f8ff;
-    display: flex;
-    justify-content: center;
-}
-
-.horizontal-menu li {
-    position: relative;
-}
-
-.horizontal-menu li a {
-    padding: 15px 20px;
-    text-decoration: none;
-    color: #333;
-    font-size: 18px;
-}
-
-.horizontal-menu li a:hover {
-    width: auto;
-}
-
-.vertical-menu {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    background-color: #f0f8ff;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    display: none;
-    z-index: 1;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-}
-
-.vertical-menu>li {
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-.vertical-menu>li>a {
-    width: 100%;
-}
-
-.horizontal-menu li:hover .vertical-menu {
-    display: block;
-}
-
-.vertical-menu li a {
-    padding: 10px 15px;
-    color: #333;
-    width: 100%;
-}
-
-.vertical-menu li a:hover {
-    background-color: #87ceeb;
-    width: 100%;
 }
 
 /*---------------------Item 1---------------------*/
@@ -242,18 +178,6 @@ blockquote>p {
     border-style: dashed;
     border-width: 4px;
 }
-
-/* .lighter-button {
-    background: linear-gradient(to top, #646464 50%, #a8a8a8 50%);
-    background-size: 100% 200%;
-    transition: background-position 0.5s ease;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-size: 16px;
-} */
 
 /* ------------------------- Item 3 --------------- */
 
@@ -304,7 +228,6 @@ summary {
     align-items: center;
     max-width: 130vw;
     min-width: 180px;
-    /*max-height: 30px;*/
     margin-right: 10px;
 }
 
@@ -413,7 +336,7 @@ body {
 }
 
 .descriere {
-    font-size: 16px
+    font-size: 16px;
 }
 
 /* ------------------------- Item 7 --------------- */
@@ -424,7 +347,7 @@ body {
 }
 
 .n {
-    color: green
+    color: green;
 }
 
 .item7-content {
@@ -432,22 +355,6 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-}
-
-.watermark {
-    height: 40px;
-    width: 302px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(335deg);
-    font-size: 30px;
-    color: rgba(0, 0, 0, 0.2);
-    z-index: 10;
-    pointer-events: none;
-    border-style: double;
-    border-width: 4px;
-    border-color: #333;
 }
 
 /* ------------------------- Item 8 --------------- */

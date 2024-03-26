@@ -2,15 +2,9 @@ body{
     --roz-deschis:#B5508E;
     --verde-deschis:#5AA054;
     --caramiziu:#755167;
+    --caramiziu-inchis:#563c4c;
     --roz:#D05EDD;
     --portocaliu:#E48E3E;
-
+    --culoare-deschisa: #f0f8ff;
+    --culoare-inchisa: rgb(42, 15, 15);
 }
-
-/* p{
-    color:var(--roz);
-}
-
-h2{
-    border:2px solid var(--roz-deschis);
-} */

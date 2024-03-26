@@ -27,12 +27,12 @@
 
 #sageata {
     opacity: 0.5;
-    transform: scale(1,1);
+    transform: scale(1.5,1.5);
     transition:transform 0.4s linear, opacity 0.4s linear;
 }
 
 #link-top:hover>#sageata {
     opacity: 1;
-    transform: scale(1.7, 1.7);
+    transform: scale(2.2, 2.2);
     transition: transform 0.4s linear, opacity 0.4s linear;
 }

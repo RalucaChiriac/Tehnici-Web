@@ -1,0 +1,101 @@
+.grid-container {
+    display: block !important;
+}
+
+img, iframe, .item5 {
+    display: none;
+}
+
+.item6 .container {
+    page-break-before: always;
+}
+
+.item1 {
+    page-break-after: always;
+}
+
+.grid-container>div {
+    background-color: transparent;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+#link-top {
+    display: none;
+}
+
+.fancy-button {
+    display: none !important;
+}
+
+h1 {
+    display: block !important;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    font-size: 2.5em;
+    text-align: center;
+    text-decoration: underline;
+    page-break-after: always;
+    transform: translateY(-50%);
+}
+
+.userList {
+    display: none;
+}
+
+.watermark {
+    position: fixed;
+    display: inline-block !important;
+    border: 5px double var(--roz-deschis);
+    height: 2cm;
+    width: 100px;
+    opacity: 0.65;
+    padding: 5px;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+}
+
+nav {
+    display: none;
+}
+
+footer {
+    page-break-before: always;
+}
+
+header {
+    page-break-after: always;
+}
+
+#banner-container {
+    text-align: center;
+    display: block !important;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 80vw;
+    margin: 0 auto;
+}
+
+#banner {
+    width: 100%;
+    border: 2px dotted black;
+}
+
+@page: left {
+    margin-left: 2.5cm;
+    margin-right: 0.5cm;
+}
+
+@page: right {
+    margin-left: 0.5cm;
+    margin-right: 2.5cm;
+}
