@@ -2,13 +2,13 @@
     display: block !important;
 }
 
-img, iframe, .item5 {
+img, iframe, .item5, video {
     display: none;
 }
 
-.item6 .container {
+/* .item6 .container {
     page-break-before: always;
-}
+} */
 
 .item1 {
     page-break-after: always;
@@ -78,7 +78,7 @@ header {
     text-align: center;
     display: block !important;
     position: absolute;
-    top: 0;
+    top: 20px;
     right: 0;
     left: 0;
     width: 80vw;
@@ -98,4 +98,8 @@ header {
 @page: right {
     margin-left: 0.5cm;
     margin-right: 2.5cm;
+}
+
+#background-meniu {
+    display: none;
 }

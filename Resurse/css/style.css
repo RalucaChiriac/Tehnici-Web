@@ -3,8 +3,57 @@ body{
     --verde-deschis:#5AA054;
     --caramiziu:#755167;
     --caramiziu-inchis:#563c4c;
+    --caramiziu-inchis-transparent: rgba(86, 60, 76, 0.5);
     --roz:#D05EDD;
     --portocaliu:#E48E3E;
     --culoare-deschisa: #f0f8ff;
     --culoare-inchisa: rgb(42, 15, 15);
+    --albastru-mov: blueviolet;
+}
+
+a:visited
+{
+    color: var(--caramiziu-inchis); 
+}
+
+a:active
+{
+    border: 2px solid black !important;
+}
+
+/* link extern - am creat pseudo-elementul ::before */
+a[href^="http"]::before
+{
+    color: var(--caramiziu-inchis);
+    /* in mod normal, este 1rem => 1.5rem - 50% mai mult decat font size-ul root-ului */
+    font-size: 1.5rem;
+    content:"\2BB3";
+    transition:color 0.5s linear;
+}
+
+a[href^="http"]:hover::before {
+    color:var(--albastru-mov);
+}
+
+a {
+    background: radial-gradient(var(--albastru-mov) 40%, transparent 80%);
+    background-position: center;
+    background-size: 0 0;
+    background-repeat: no-repeat;
+    color: black;
+    transition: background-size 1s linear;
+}
+
+a:hover {
+    background-size: 100% 100%;
+}
+
+/* 
+   header a = link-uri din meniu
+   a[href^="http"] = link-uri externe
+   pentru care vrem sa nu apara pata cu cercul
+*/
+header a, a[href^="http"] 
+{
+    background: transparent;
 }

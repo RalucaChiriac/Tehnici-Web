@@ -46,6 +46,7 @@ nav{
 
 .meniu li>div, .meniu li>a {
     display: block;
+    position: relative;
     width: 100%;
     height: 100%;
     cursor: pointer;
@@ -53,7 +54,8 @@ nav{
     color:var(--culoare-deschisa);
     text-decoration: none;
     box-sizing: border-box;
-    transition: all 0.7s linear;
+    transition: all 1s linear;
+    z-index: 10;
 }
 
 .meniu li>span {
@@ -67,7 +69,8 @@ nav{
     margin: 0 auto;
     
     top: -50px;
-    transition: top 0.7s linear;
+    transition: top 1s linear;
+    z-index: 1;
 }
 
 .meniu li:hover>div, .meniu li:hover>a {
@@ -79,7 +82,7 @@ nav{
 }
 
 .meniu li:hover {
-    overflow: visible;
+    overflow: visible; /*nu taie din element ci il lasa in afara*/
 }
 
 .meniu li:hover>ul{

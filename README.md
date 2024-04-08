@@ -113,37 +113,3 @@
 
 
 </details>
-<details>
-<summary>
-  
-### Etapa 1
-
-</summary>
-Done 10-March-2024
-</details>
-<details>
-<summary>
-
-### Etapa 2
-
-</summary>
-Done 20-March-2024
-</details>
-<details>
-<summary>
- 
-### Etapa 3
-
-</summary>
-Done 26-March-2024
-</details>
-<details>
-<summary>
-
-### Etapa 4
-
-</summary>
-        Work in progress....
-</details>
-
-

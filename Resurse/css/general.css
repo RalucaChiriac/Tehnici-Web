@@ -21,6 +21,10 @@
     transition: color 0.4 linear;
 }
 
+#link-top:active {
+    border: none !important;
+}
+
 #link-top:hover {
     opacity: 1;
 }

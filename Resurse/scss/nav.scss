@@ -1,5 +1,5 @@
 @mixin mixin1 {
-    list-style-type: none;
+    list-style-type: none; // elimina bulina
     padding: 0;
     margin: 0;
     
@@ -7,6 +7,7 @@
 }
 
 @mixin mixin2 {
+    position: relative;
     display: block;
     width: 100%;
     height: 100%;
@@ -15,7 +16,8 @@
     color:var(--culoare-deschisa);
     text-decoration: none;
     box-sizing: border-box;
-    transition: all 0.7s linear;
+    transition: all 1s linear;
+    z-index: 10;
 }
 
 #background-meniu {
@@ -77,14 +79,15 @@
             margin: 0 auto;
             
             top: -50px;
-            transition: top 0.7s linear;
+            transition: top 1s linear;
+            z-index: 1;
         }
         &:hover {
             >div {
-                background-color: var(--caramiziu-inchis);
+                background-color: var(--caramiziu-inchis-transparent);
             }
             >a {
-                background-color: var(--caramiziu-inchis);
+                background-color: var(--caramiziu-inchis-transparent);
             }
             >span {
                 top: 0;

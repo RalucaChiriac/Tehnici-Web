@@ -72,14 +72,16 @@
 }
 
 
+
 @media (max-width: 1200px) {
     .grid-container {
-        grid-template-areas:"item1 item1 item1 item1 item1 item1 item1 item1"
-                            "item1 item1 item1 item1 item1 item1 item1 item1"
-                            "item2 item2 item2 item2 item8 item8 item8 item8"
-                            "item5 item5 item5 item5 item8 item8 item8 item8"
-                            "item6 item6 item6 item6 item3 item3 item3 item3"
-                            "item4 item4 item4 item4 item7 item7 item7 item7";
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:"item1 item1"
+                            "item1 item1"
+                            "item2 item8"
+                            "item5 item8"
+                            "item6 item3"
+                            "item4 item7";
     }
     .grid-container > * {
         margin: 10px 0px;
