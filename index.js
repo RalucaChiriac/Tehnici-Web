@@ -1,12 +1,16 @@
 const express = require("express");
 const fs = require('fs');
 const path=require('path');
-// const sharp=require('sharp');
-// const sass=require('sass');
+const sharp=require('sharp');
+const sass=require('sass');
 // const ejs=require('ejs');
 
 obGlobal = {
     obErori: null,
+    obImagini:null,
+    folderScss:path.join(__dirname,"Resurse/scss"),
+    folderCss:path.join(__dirname,"Resurse/css"), 
+    folderBackup:path.join(__dirname,"backup"),
 };
 
 app = express(); //creez un obiect server express
@@ -20,16 +24,17 @@ console.log("Director de lucru", process.cwd());
  
 app.set("view engine","ejs");
 
-vect_globale = ["temp", "temp1"]; //creare foldere
+vect_foldere = ["temp", "temp1", "backup"]; //creare foldere
 for(let folder of vect_foldere){
     let caleFolder=path.join(__dirname,folder)
-    if(!fs.existsSynch(caleFolder)){
+    if(!fs.existsSync(caleFolder)){
         fs.mkdirSync(caleFolder);//verifica existenta unui fisier, daca nu exista il creaza
     }
 }
 
 //primeste o cerere care incepe cu /Resurse si va trimite fisiere din folderul (__dirname+"/Resurse")
 app.use("/Resurse", express.static(__dirname+"/Resurse"));
+app.use("/node_modules", express.static(__dirname+"/node_modules"));
 
 // verifica daca se afla in folderul de resurse, folosind un regex pentru a vedea daca e orice cuvant dupa /Resurse in calea
 // paginiii cerute, daca da, afiseaza eroarea 403 - forbidden
@@ -42,17 +47,18 @@ app.get(new RegExp("^\/Resurse\/[A-Za-z0-9\/]*\/$"), function(req,res){
 });
 
 app.get(["/", "/index", "/home"], function(req, res){
-   res.render("pagini/index", {ip: req.ip}); // este cea care executa defapt ejs-ul
+   res.render("pagini/index", {ip: req.ip, imagini: obGlobal.obImagini.imagini}); // este cea care executa defapt ejs-ul
+})
+
+app.get("/galerie", function(req, res){
+  // console.log(obGlobal.obImagini);
+  res.render("pagini/galerie", {imagini: obGlobal.obImagini.imagini});
 })
 
 // // trimiterea unui mesaj fix
 // //este o cerere pe care o trimitem in browser, iar function(req, res) se va apela cand trimit cererea, cea care va veni cu raspunsul
-// // ca sa vina cu raspunsul trebuie sa completez variabila res(response); req=request 
 // app.get("/cerere", function(req, res){
 //     res.send("<b>Hello</b> <span style='color:red'>world!</span>");
-
-// })
-
 
 // //trimiterea unui mesaj dinamic , next() este o functie care ne ajuta sa-i spunem cauta mai departe nu te opri aici
 // //send si opreste trimiterea. /data ar intra pe prima pe care o gaseste
@@ -64,7 +70,6 @@ app.get(["/", "/index", "/home"], function(req, res){
 //     res.write(""+new Date());// converteste obiectul intr-un sir de caractere ""+
 //     res.end();// indica terminarea raspunsului, daca nu clientul inca asteapta date
 // });
-
 
 // //trimiterea unui mesaj dinamic in functie de parametri (req.params; req.query)
 
@@ -143,6 +148,81 @@ app.get("/*", function (req, res) {
       }
     }
   }
+
+  function initImagini(){
+    var continut = fs.readFileSync(path.join(__dirname,"Resurse/json/galerie.json")).toString("utf-8");
+
+    obGlobal.obImagini=JSON.parse(continut);
+    let vImagini=obGlobal.obImagini.imagini;
+
+    let caleAbs=path.join(__dirname,obGlobal.obImagini.cale_galerie);
+    let caleAbsMediu=path.join(__dirname,obGlobal.obImagini.cale_galerie, "mediu");
+    let caleAbsMic=path.join(__dirname,obGlobal.obImagini.cale_galerie, "mic");
+    if (!fs.existsSync(caleAbsMediu))
+        fs.mkdirSync(caleAbsMediu);
+
+    for (let imag of vImagini){
+        [numeFis, ext]=imag.fisier.split(".");
+        let caleFisAbs=path.join(caleAbs,imag.fisier);
+        let caleFisMediuAbs=path.join(caleAbsMediu, numeFis+".webp");
+        sharp(caleFisAbs).resize(300).toFile(caleFisMediuAbs);
+        let caleFisMicAbs=path.join(caleAbsMic, numeFis+".webp");
+        sharp(caleFisAbs).resize(200).toFile(caleFisMicAbs);
+        imag.fisier_mic=path.join("/", obGlobal.obImagini.cale_galerie, "mic",numeFis+".webp" )
+        imag.fisier_mediu=path.join("/", obGlobal.obImagini.cale_galerie, "mediu",numeFis+".webp" )
+        imag.fisier=path.join("/", obGlobal.obImagini.cale_galerie, imag.fisier)
+    }
+
+    console.log(obGlobal.obImagini)
+}
+initImagini();
+
+
+function compileazaScss(caleScss, caleCss){
+    console.log("cale:",caleCss);
+    if(!caleCss) {
+        let numeFisExt=path.basename(caleScss);//numele 
+        let numeFis=numeFisExt.split(".")[0];  /// "a.scss"  -> ["a","scss"]
+        caleCss=numeFis+".css";
+    }
+    
+    if (!path.isAbsolute(caleScss))
+        caleScss=path.join(obGlobal.folderScss,caleScss)
+    if (!path.isAbsolute(caleCss))
+        caleCss=path.join(obGlobal.folderCss,caleCss )
+
+    let caleBackup=path.join(obGlobal.folderBackup, "Resurse/css");
+    if (!fs.existsSync(caleBackup)) {
+        fs.mkdirSync(caleBackup,{recursive:true})
+    }
+    
+    // la acest punct avem cai absolute in caleScss si  caleCss
+    let numeFisCss=path.basename(caleCss);
+    if (fs.existsSync(caleCss)){
+        fs.copyFileSync(caleCss, path.join(obGlobal.folderBackup, "Resurse/css", numeFisCss))// +(new Date()).getTime()
+    }
+    
+    rez=sass.compile(caleScss, {"sourceMap":true});
+    fs.writeFileSync(caleCss,rez.css)
+    //console.log("Compilare SCSS",rez);
+}
+//compileazaScss("a.scss");
+vFisiere=fs.readdirSync(obGlobal.folderScss);
+for( let numeFis of vFisiere ){
+    if (path.extname(numeFis)==".scss"){
+        compileazaScss(numeFis);
+    }
+}
+
+fs.watch(obGlobal.folderScss, function(eveniment, numeFis){
+    console.log(eveniment, numeFis);
+    if (eveniment=="change" || eveniment=="rename"){
+        let caleCompleta=path.join(obGlobal.folderScss, numeFis);
+        if (fs.existsSync(caleCompleta)){
+            compileazaScss(caleCompleta);
+        }
+    }
+})
 
 app.listen(8080);//asculta cererile de pe portul 8080
 console.log("Serverul a pornit");//afiseaza

@@ -10,6 +10,7 @@
     <meta name="description" content="Ritmuri Florale. Aranjamente, buchete, trandafiri criogenati. Împărtășește un moment de rafinament și eleganță, oferind bucurie și surpriză. 
         Livrare gratuită la domiciliu.">
     <!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării -->
+    <link rel="stylesheet" href="/Resurse/css/galerie.css">
 </head>
 
 <body>
@@ -20,10 +21,10 @@
         <div class="grid-container">
             <div class="item1">
                 <section id="welcome">
-                    <h2><em>Bine ați venit</em> la <b>Ritmuri Florale</b>!</h2>
-                    <p>In acest an am decis să înființez o <strong>florărie</strong> deoarece, cu timpul, am dezvoltat o pasiune îndelungată pentru frumusețea naturală și pentru aranjamentele statice.<br> Fiecare produs din magazinul nostru este selecționat
-                        cu grijă și creat cu devotament, aducând un strop de <b>frumusețe</b> și <b>bucurie</b> în viața clienților noștri.</p>
-                    <p>Vă invităm să explorați selecția noastră variată de <b>flori</b> și <b>aranjamente</b> și să vă alăturați familiei noastre de clienți mulțumiți. La <b>Ritmuri Florale</b>, <em>frumusețea</em> întâlnește
+                    <h1><em>Bine ați venit</em> la <b>Ritmuri Florale</b>!</h1>
+                    <button class="btn btn-secondary btn-lg text-light">Welcome!</button>
+                    <p class="paragraf-coloane">In acest an am decis să înființez o <strong>florărie</strong> deoarece, cu timpul, am dezvoltat o pasiune îndelungată pentru frumusețea naturală și pentru aranjamentele statice.<br> Fiecare produs din magazinul nostru este selecționat
+                        cu grijă și creat cu devotament, aducând un strop de <b>frumusețe</b> și <b>bucurie</b> în viața clienților noștri. Vă invităm să explorați selecția noastră variată de <b>flori</b> și <b>aranjamente</b> și să vă alăturați familiei noastre de clienți mulțumiți. La <b>Ritmuri Florale</b>, <em>frumusețea</em> întâlnește
                         <em>pasiunea</em> pentru unicitate!
                     </p>
                     <br/>
@@ -59,15 +60,17 @@
                             </div>
                         </div>
                     </div>
+                    <hr class="stilizare-hr">
                     <blockquote>
                         <p>"Fiecare floare este un suflet care înflorește în natură." - Gerard De Nerval</p>
                     </blockquote>
-                    <video width="560" height="315" controls preload="none" poster="/Resurse/imagini/poster_video.jpg">
+                    <video width="560" height="315" controls muted preload="none" poster="/Resurse/imagini/poster_video.jpg">
                         <source src="/Resurse/video/video.mp4" type="video/mp4">
                         <source src="/Resurse/video/video.ogv" type="video/ogv">
                         <track default src="/Resurse/vtt/captions_ro.vtt" srclang="ro" label="romana">
                         <track src="/Resurse/vtt/captions_en.vtt" srclang="en" label="engleza">
                     </video>
+                    <%- include("../fragmente/galerie.ejs") %>
                 </section>
             </div>
             <div class="item2">
@@ -214,7 +217,8 @@
             <div class="item7">
                 <div class="item7-content">
                     <div>
-                        <h4>Formula calculare pret</h4> <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                        <h4><div class="text">Formula calculare pret<div class="text-reflectat">Formula calculare pret</div></div></h4> 
+                        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
                     <mrow>
                         <mi class="P1">P</mi>
                         <mo class="egal">=</mo>

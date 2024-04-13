@@ -1,0 +1,43 @@
+<div id="grid-galerie">
+    <%
+        var c = 1;
+        for (let imag of locals.imagini) 
+        {
+          var sferturi_ora = imag.sfert_ora.split(" ");
+          if (c == 5 || c == 7) 
+          {
+    %>
+            <div class="imagine-goala"></div>
+    <%
+          }
+          var d = new Date();
+          minutes = d.getMinutes();
+          if (((minutes >= 0 && minutes < 15 && sferturi_ora.includes("1")) ||
+              (minutes >= 15 && minutes < 30 && sferturi_ora.includes("2")) ||
+              (minutes >= 30 && minutes < 45 && sferturi_ora.includes("3")) ||
+              (minutes >= 45 && minutes < 60 && sferturi_ora.includes("4"))) && c <= 10)
+          {
+            c++;
+    %>
+  
+    <div class="imagine-galerie-statica">
+      <figure>
+        <picture>
+          <source srcset="<%- imag.fisier_mediu %>" media="(max-width:1000px)" />
+          <source srcset="<%- imag.fisier_mic %>" media="(max-width:500px)" />
+  
+          <img src="<%- imag.fisier %>" alt="<%- imag.titlu %>" title="<%- imag.descriere %>">
+        </picture>
+        <figcaption>
+          <%- imag.descriere %>
+          <br>
+          <% if(imag.autor) %>
+              <%- imag.autor %>
+        </figcaption>
+      </figure>
+    </div>
+<%     
+        }
+    }
+%>
+  </div>

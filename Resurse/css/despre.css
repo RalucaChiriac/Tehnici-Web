@@ -1,0 +1,101 @@
+video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+
+html,body
+{
+	font-size:14px;
+	counter-reset: nra;
+	min-width:200px;
+}
+
+table#tabelescu, table#tabelescu td, table#tabelescu th
+{
+	border: 1px solid black;
+	padding: 1em;
+}
+table#tabelescu
+{
+    background-color: white;
+    position: relative;
+    z-index: 20;
+    margin: 30px;
+	border-spacing:0;
+	border-collapse:separate;
+	box-sizing:border-box;
+}
+table#tabelescu>tbody tr 
+{
+	counter-increment: nra; /*ca sa numar cate animalute (randuri in tbody) am */
+}
+
+table#tabelescu tfoot td::after
+{
+	content: " " counter(nra);
+}
+
+@media (max-width: 800px) {
+    table#tabelescu {
+        margin: 30px !important;
+    }
+    
+    table#tabelescu, table#tabelescu tr{
+        border:none;
+        padding:0;
+        margin:0;
+        display:block;
+    }
+    table#tabelescu td{
+        display:block;
+        padding:0.2em;
+        box-sizing:border-box; /*ca sa imi includa si paddingul in width;*/
+    }
+    table#tabelescu thead{
+        display:none;
+    }
+    table#tabelescu tbody td:nth-child(1)::before{
+        content:"Nume floare: ";
+    }
+    table#tabelescu tbody td:nth-child(2)::before{
+        content:"Descriere: ";
+    }
+    table#tabelescu tbody td:nth-child(3)::before{
+        content:"Pret: ";
+    }
+    table#tabelescu tbody td:nth-child(4)::before{
+        content:"Disponibilitate: ";
+    }
+    
+    table#tabelescu td{
+        border-bottom:none;
+        border-top:none;
+        float:left;
+        width:80%;
+        padding-left:2%;
+        padding-right:2%;
+    }
+    table#tabelescu td::before{
+        float:left;
+        width:35%;
+        background:lightgrey;
+        font-weight:bold;
+        margin-right:0.5em;
+        padding:0.1em;
+        line-height:100%;
+    }
+    table#tabelescu td:last-child{
+        border-bottom:1px dashed grey;
+    }
+    table#tabelescu tr:first-child  td:first-child{
+        border-top:1px solid black;
+    }
+    table#tabelescu tr:last-child td:last-child{
+        border-bottom:1px solid black;
+    }
+}

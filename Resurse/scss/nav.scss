@@ -20,6 +20,11 @@
     z-index: 10;
 }
 
+header {
+    position: relative;
+    z-index: 20;
+}
+
 #background-meniu {
     margin: 0 10px;
     background-color: var(--roz-deschis);

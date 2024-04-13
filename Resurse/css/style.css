@@ -9,6 +9,7 @@ body{
     --culoare-deschisa: #f0f8ff;
     --culoare-inchisa: rgb(42, 15, 15);
     --albastru-mov: blueviolet;
+    --gri: gray;
 }
 
 a:visited
@@ -40,7 +41,7 @@ a {
     background-position: center;
     background-size: 0 0;
     background-repeat: no-repeat;
-    color: black;
+    color: black !important;
     transition: background-size 1s linear;
 }
 
@@ -56,4 +57,9 @@ a:hover {
 header a, a[href^="http"] 
 {
     background: transparent;
+}
+
+header a
+{
+    color: var(--culoare-deschisa) !important;
 }

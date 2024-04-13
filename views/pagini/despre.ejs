@@ -10,6 +10,7 @@
     <meta name="description" content="Ritmuri Florale. Aranjamente, buchete, trandafiri criogenati. Împărtășește un moment de rafinament și eleganță, oferind bucurie și surpriză. 
         Livrare gratuită la domiciliu.">
     <!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării -->
+    <link rel="stylesheet" href="/Resurse/css/despre.css">
 </head>
 
 <body>
@@ -17,7 +18,46 @@
         <%-include("../fragmente/header.ejs") %>
     </header>
     <main>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi amet soluta, voluptate qui nesciunt aperiam ea sint, ad aliquam maxime facilis consequuntur? Aspernatur ratione dolor, adipisci, voluptates illum porro quae similique delectus asperiores explicabo in? Quas explicabo a, possimus similique accusamus consequatur magni velit cum exercitationem eveniet blanditiis veritatis quod?</p>
+        <video playsinline autoplay muted loop>
+            <source src="/Resurse/video/video.mp4" type="video/mp4">
+            <source src="/Resurse/video/video.ogv" type="video/ogv">
+        </video>
+
+        <table id="tabelescu">
+			<thead>
+				<tr>
+					<th>Nume floare</th>
+					<th>Descriere</th>
+					<th>Pret</th>
+					<th>Disponibilitate</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Buchet de trandafiri</td>
+					<td>Trandafirii sunt emblema iubirii și eleganței!</td>
+					<td>20 RON</td>
+					<td>In stoc</td>
+				</tr>
+				<tr>
+					<td>Buchet de lalele</td>
+					<td>Lalelele au culori vibrante si foarte variate!</td>
+					<td>15 RON</td>
+					<td>In stoc</td>
+				</tr>
+				<tr>
+					<td>Buchet de lalele</td>
+					<td>Lalelele au culori vibrante si foarte variate!</td>
+					<td>15 RON</td>
+					<td>In stoc</td>
+				</tr>
+			</tbody>
+			<tfoot><!-- pus tfoot la finalul tabelului, ca sa mearga counterul -->
+				<tr>
+					<td colspan="6">Numar flori:</td><!--calculat cu ajutorul counterelor -->
+				</tr>
+			</tfoot>
+		</table>
     </main>
     <footer>
         <%-include("../fragmente/footer.ejs") %>

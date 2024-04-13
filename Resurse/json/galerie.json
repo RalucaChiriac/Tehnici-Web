@@ -1,0 +1,97 @@
+{
+	"cale_galerie":"Resurse/imagini/galerie",
+	"imagini": [
+		{
+			"fisier":"trandafir.png",
+			"titlu":"Trandafir",
+            "descriere":"Trandafirii sunt emblema iubirii și eleganței !",
+			"sfert_ora":"1 2 4",
+			"autor": "Autor: José León pe Unsplash"
+		},
+		{
+			"fisier":"lalele.png",
+			"titlu":"Lalele multicolore",
+            "descriere":"Lalelele au culori vibrante si foarte variate !",
+			"sfert_ora":"1 2 4"	
+		},
+		{
+			"fisier":"zambila.png",
+			"titlu":"Zambile",
+            "descriere":"Zambilele sunt emblema iubirii și eleganței !",
+			"sfert_ora":"1 2 4"
+		},
+		{
+			"fisier":"frezie.png",
+			"titlu":"Frezie",
+            "descriere":"Frezile au un miros aparte !",
+			"sfert_ora":"1 2 4"
+		},
+		{
+			"fisier":"flori-mixte.png",
+			"titlu":"Flori mixte",
+            "descriere":"Descoperă magia unui buchet mixt, unde fiecare floare aduce o poveste unică în ansamblul său !",
+            "sfert_ora":"1 2 4"
+		},
+		{
+			"fisier":"hortensie.png",
+			"titlu":"Hortensie",
+            "descriere":"Hortensiile sunt o minunată expresie a gratiei naturii, cu buchetele lor luxuriante de flori bogate și petale catifelate !",
+            "sfert_ora":"1 3 4"
+		},
+		{
+			"fisier":"floarea-soarelui.png",
+			"titlu":"Floarea soarelui",
+            "descriere":"Floarea soarelui, cu petalele sale luminoase și tulpina înaltă, este un simbol al optimismului și bucuriei !",
+            "sfert_ora":"1 3 4"
+		},
+        {
+			"fisier":"bujori.png",
+			"titlu":"Bujori",
+            "descriere":"Bujorii sunt printre cele mai rafinate și delicate flori, cu petale mari și bogate, care emană eleganță și parfum îmbătător !",
+            "sfert_ora":"1 3 4"
+		},
+        {
+			"fisier":"ghiocel.png",
+			"titlu":"Ghiocel",
+            "descriere":"Ghioceii sunt vestitorii primaverii !",
+            "sfert_ora":"1 3 4"
+		},
+        {
+			"fisier":"ghiocel.png",
+			"titlu":"Narcisa",
+            "descriere":"Narcisele aduc o nota proaspata si delicata !",
+            "sfert_ora":"1 3 4"
+		},
+		{
+			"fisier":"ghiocel.png",
+			"titlu":"Narcisa",
+            "descriere":"Narcisele aduc o nota proaspata si delicata !",
+            "sfert_ora":"2 3"
+		},
+		{
+			"fisier":"ghiocel.png",
+			"titlu":"Narcisa",
+            "descriere":"Narcisele aduc o nota proaspata si delicata !",
+            "sfert_ora":"2 3"
+		},
+		{
+			"fisier":"ghiocel.png",
+			"titlu":"Narcisa",
+            "descriere":"Narcisele aduc o nota proaspata si delicata !",
+            "sfert_ora":"2 3"
+		},
+		{
+			"fisier":"ghiocel.png",
+			"titlu":"Narcisa",
+            "descriere":"Narcisele aduc o nota proaspata si delicata !",
+            "sfert_ora":"2 3"
+		},
+		{
+			"fisier":"ghiocel.png",
+			"titlu":"Narcisa",
+            "descriere":"Narcisele aduc o nota proaspata si delicata !",
+            "sfert_ora":"2 3"
+		}
+	]
+}
+
