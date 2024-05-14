@@ -58,7 +58,6 @@ iframe {
 .item2 {
     background-color: red;
     overflow-x: auto;
-    position: "fixed";
     min-width: 50vw;
 }
 
@@ -195,9 +194,9 @@ summary {
 /* ------------------------- Item 4 --------------- */
 
 footer {
-    background-color: #f9f9f9;
+    background-color: var(--culoare-background);
     padding: 40px 0;
-    color: #333;
+    color: var(--culoare-inchisa);
     text-align: center;
     background-image: url('https://example.com/flower-pattern.jpg');
     background-size: cover;
@@ -218,7 +217,7 @@ footer {
 .contact-info p {
     margin: 5px 0;
     font-size: 16px;
-    color: #555;
+    color: var(--culoare-inchisa);
 }
 
 /* ------------------------- Item 5 --------------- */
@@ -230,9 +229,11 @@ footer {
     padding: 20px;
     display: flex;
     align-items: center;
+    height: 150px;
     max-width: 130vw;
     min-width: 180px;
     margin-right: 10px;
+    max-height: 150px;
 }
 
 .user-card__avatar {
@@ -252,7 +253,7 @@ footer {
 
 .user-card__name {
     margin: 0;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .user-card__email {

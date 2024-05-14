@@ -1,0 +1,94 @@
+$nrImg: 7;
+.galerie-animata {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  width: 25%;
+  height: 25em;
+
+  figcaption {
+    position: absolute;
+    bottom: 0;
+    background: var(--accent-color);
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+  }
+  figure {
+    border: 0.5em solid;
+    border-image: url('/Resurse/imagini/trandafir1.jpg') 30;
+    position: relative;
+    // width: 30%;
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+#galanim {
+  figure {
+    position: absolute;
+    left: 5%;
+    margin-bottom: 10em;
+    z-index: 0;
+    animation-name: diagonal-wipe;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-duration: calc(2s * $nrImg);
+    transform-origin: center;
+  }
+
+  &:hover figure {
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    -o-animation-play-state: paused;
+    animation-play-state: paused;
+    cursor: pointer;
+  }
+}
+
+@for $i from 0 through $nrImg {
+  #galanim figure:nth-child(#{$i}) {
+    animation-delay: 2s * $i;
+  }
+}
+
+$start: calc(1.5 / ($nrImg * 3) * 100%);
+$mid: calc(3 / ($nrImg * 3) * 100%);
+$midm1: calc((3 / ($nrImg * 3)) * 100% - 1%);
+$end: calc(100% - (1.5 / ($nrImg * 3) * 100%));
+
+@keyframes diagonal-wipe {
+  0% {
+    opacity: 1;
+  }
+  #{$start} {
+    opacity: 1;
+    //clip-path: polygon(100% 0, 100% 0, 0 100%, 0 100%, 0 100%, 100% 0);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 100% 0, 100% 0, 100% 0, 0 100%);
+  }
+  #{$midm1} {
+    //clip-path: polygon(100% 0, 60% 0, 0 60%, 0 100%, 40% 100%, 100% 40%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 25% 100%, 100% 25%, 100% 0, 75% 0, 0 75%);
+  }
+  #{$mid} {
+    opacity: 0;
+    //clip-path: polygon(100% 0, 20% 0, 0 20%, 0 100%, 80% 100%, 100% 80%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 100%, 100% 70%, 100% 0, 30% 0, 0 30%);
+  }
+  #{$end} {
+    opacity: 0; 
+    //clip-path: polygon(100% 0, 100% 0, 100% 100%, 0 100%, 0 100%, 0 0);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%, 100% 0, 0 0, 0 0);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+

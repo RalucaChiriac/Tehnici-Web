@@ -18,7 +18,8 @@
                 <span>Despre</span>
                 <a href="/despre">Despre</a>
             </li>
-            <li>
+
+            <!-- <li>
                 <span>Buchete de flori</span>
                 <a href="">Buchete de flori</a>
                 <ul>
@@ -54,10 +55,27 @@
                     <li><a href="# ">Trandafiri în cupolă</a></li>
                     <li><a href="# ">Trandafiri în cutie</a></li>
                 </ul>
-            </li>
+            </li> -->
             <li>
                 <span>Galerie</span>
                 <a href="/galerie">Galerie</a>
+            </li>
+            <li>
+                <span>Produse</span>
+                <div>Produse</div>
+                <ul>
+                    <li><a href="/produse">toate</a></li>
+                    <% 
+                        for(let idx in locals.tipuri) { %>
+                        <li><a href="/produse?tip=<%- locals.tipuri[idx].unnest %>"><%- locals.tipuri[idx].unnest %></a></li>
+                    <% } %>
+                </ul>
+            </li>
+            <li id="switch-tema">
+                <div class="form-check form-switch">
+                    <input class="form-check-input bg-secondary" type="checkbox" role="switch" id="tema" style="display: block !important">
+                    <label class="form-check-label" for="tema"><i style="cursor: pointer; color: var(--culoare-deschisa) !important;" class="fa-regular fa-moon"></i></label>
+                </div>
             </li>
         </ul>
     </nav>

@@ -10,6 +10,24 @@ body{
     --culoare-inchisa: rgb(42, 15, 15);
     --albastru-mov: blueviolet;
     --gri: gray;
+    --culoare-background: white;
+    background-color: var(--culoare-background);
+}
+
+body.dark{
+    --roz-deschis:#621e48;
+    --verde-deschis:#2a5227;
+    --caramiziu:#755167;
+    --caramiziu-inchis:#8b687d;
+    --caramiziu-inchis-transparent: rgba(156, 121, 143, 0.5);
+    --roz:#bc8ac2;
+    --portocaliu:#E48E3E;
+    --culoare-deschisa: rgb(42, 15, 15);
+    --culoare-inchisa: #f0f8ff;
+    --albastru-mov: blueviolet;
+    --gri: gray;
+    --culoare-background: rgb(108, 82, 132);
+    background-color: var(--culoare-background);
 }
 
 a:visited

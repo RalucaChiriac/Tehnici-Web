@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <link rel="stylesheet" href="/Resurse/css/produse.css" type="text/css" />
+        <%- include("../fragmente/head.ejs") %>     
+        <script type="text/javascript" src=/Resurse/js/produse.js></script>
+    </head>
+    <body>
+        <header>
+            <%- include("../fragmente/header.ejs") %>
+        </header>
+        <main>
+            <div id="filtre">
+                <h2>Filtre</h2>
+
+                <div class="row w-100">
+                    <div class="col">
+                        <label for="inp-descriere">Descriere</label>
+                        <br>
+                        <textarea id="inp-descriere" class="form-control w-75"></textarea>
+                        <div style="display:none;" id="mesaj-invalid-txtarea" class="text-danger">Introduceti o descriere valida!</div>
+                    </div>
+                    
+                    <div class="col">
+                        <label for="inp-nume">Nume</label>
+                        <br>
+                        <input type="text" id="inp-nume" class="form-control w-75">
+                        <div style="display:none;" id="mesaj-invalid-txt" class="text-danger">Introduceti un nume valid!</div>
+                    </div>
+    
+                    <div class="col"> Flori componente
+                        <div class="row">
+                            <p class="col">
+                                <input id="i_ch1"  name="gr_ch" value="primule" type="checkbox" checked/>
+                                <label for="i_ch1" class="btn btn-outline-primary mb-1">primule</label>
+                            </p>
+                            <p class="col">
+                                <input id="i_ch2"  name="gr_ch" value="zambile" type="checkbox" checked/>
+                                <label for="i_ch2" class="btn btn-outline-primary mb-1">zambile</label>
+                            </p>
+                            <p class="col">
+                                <input id="i_ch3"  name="gr_ch" value="crini" type="checkbox" checked/>
+                                <label for="i_ch3" class="btn btn-outline-primary mb-1">crini</label>
+                            </p>
+                        </div>
+                        <div class="row">
+                            <p class="col">
+                                <input id="i_ch5"  name="gr_ch" value="hortensie" type="checkbox" checked/>
+                                <label for="i_ch5" class="btn btn-outline-primary mb-1">hortensie</label>
+                            </p>
+                            <p class="col">
+                                <input id="i_ch6"  name="gr_ch" value="frezii" type="checkbox" checked/>
+                                <label for="i_ch6" class="btn btn-outline-primary mb-1">frezii</label>
+                            </p>
+                            <p class="col">
+                                <input id="i_ch7"  name="gr_ch" value="ghiocei" type="checkbox" checked/>
+                                <label for="i_ch7" class="btn btn-outline-primary mb-1">ghiocei</label>
+                            </p>
+                        </div>
+                        <div class="row">
+                            <p class="col">
+                                <input id="i_ch8"  name="gr_ch" value="bujori" type="checkbox" checked/>
+                                <label for="i_ch8" class="btn btn-outline-primary mb-1">bujori</label>
+                            </p>
+                            <p class="col">
+                                <input id="i_ch9"  name="gr_ch" value="lalele" type="checkbox" checked/>
+                                <label for="i_ch9" class="btn btn-outline-primary mb-1">lalele</label>
+                            </p>
+                            <p class="col">
+                                <input id="i_ch10"  name="gr_ch" value="narcisa" type="checkbox" checked/>
+                                <label for="i_ch10" class="btn btn-outline-primary mb-1">narcisa</label>
+                            </p>
+                        </div>
+                        <div class="row">
+                            <p class="col">
+                                <input id="i_ch11"  name="gr_ch" value="trandafiri" type="checkbox" checked/>
+                                <label for="i_ch11" class="btn btn-outline-primary mb-1">trandafiri</label>
+                            </p>
+                            <p class="col">
+                                <input id="i_ch4"  name="gr_ch" value="floarea-soarelui" type="checkbox" checked/>
+                                <label for="i_ch4" class="btn btn-outline-primary mb-1">floarea-soarelui</label>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="col">
+                        <label for="inp-pret">Pret minim <br> 0 <input type="range" class="form-range w-50" id="inp-pret" value="0" min="0" max="500" step="10"> 500 <span id="infoRange">(0)</span> </label>
+                    </div>
+                </div>
+                
+                <div class="row w-100">
+                    <label class="col">Culoare
+                        <br>
+                        <select id="inp-culoare" multiple size="4" class="form-select w-75">
+                            <option id="sel-mult-toate" selected value="toate">toate</option>
+                            <option value="rosu">rosu</option>
+                            <option value="galben">galben</option>
+                            <option value="roz">roz</option>
+                            <option value="lila">lila</option>
+                            <option value="albastru">albastru</option>
+                            <option value="portocaliu">portocaliu</option>
+                            <option value="alb">alb</option>
+                            <option value="mov">mov</option>
+                        </select>
+                    </label>
+    
+                    <div class="col">
+                        <label for="inp-categorie">Tip eveniment</label>
+                        <input list="categorie" id="inp-categorie" class="form-control w-75">
+                        <datalist id="categorie">
+                            <option value="comanda speciala">comanda special</option>
+                            <option value="aniversara">aniversara</option>
+                            <option value="editie limitata">editie limitata</option>
+                            <option value="nunta">nunta</option>
+                            <option value="botez">botez</option>
+                        </datalist>
+                    </div>
+    
+                    <div class="col">Pentru alergici
+                        <p>
+                            <input id="i_rad1" name="gr_rad" value="da" type="radio"/>
+                            <label for="i_rad1" class="btn btn-outline-primary mb-1">Da</label>
+                        </p>
+                        <p>
+                            <input id="i_rad2"  name="gr_rad" value="nu" type="radio"/>
+                            <label for="i_rad2" class="btn btn-outline-primary mb-1">Nu</label>
+                        </p>
+                        <p>
+                            <input id="i_rad3"  name="gr_rad" value="oricare" type="radio" checked/>
+                            <label for="i_rad3" class="btn btn-outline-primary mb-1">Oricare</label>
+                        </p>
+                    </div>
+    
+                    <label class="col">Numar fire
+                        <br>
+                        <select id="inp-nr_fire" class="form-select w-75">
+                            <option id="sel-toate" selected value="oricate">oricate</option>
+                            <option value="1:20">1 - 20</option>
+                            <option value="21:50">21 - 50</option>
+                            <option value="51:101">51 - 101</option>
+                        </select>
+                    </label>
+                </div>
+
+                <p id="butoane-filtrare">
+                    <button id="filtrare" class="btn btn-primary my-2"><span><i class="bi bi-filter"></i></span> <span class="text-btn">Filtreaza</span></button>
+                    <button id="resetare" class="btn btn-primary my-2"><span><i class="bi bi-x"></i></span> <span class="text-btn">Reseteaza</span></button>
+                    <br/>
+                    <button id="sortCrescNume" class="btn btn-primary mb-2"><span><i class="bi bi-arrow-up-short"></i></span> <span class="text-btn">Sorteaza crescator dupa pret</span></button>
+                    <br>
+                    <button id="sortDescrescNume" class="btn btn-primary mb-2"><span><i class="bi bi-arrow-down-short"></i></span> <span class="text-btn">Sorteaza descrescator dupa pret</span></button>
+                </p>
+
+                <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate.</p>
+            </div>
+            <section id="produse">
+                <h2>Produse</h2>
+                <div class="grid-produse">
+                    <% for(let prod of locals.produse) { %>
+                        <article class="produs" class="<%-prod.tip_produs%>" id="ent<%-prod.id%>">
+                            <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" style="color: var(--culoare-deschisa) !important;"><span class="val-nume"><%- prod.nume%></span></a></h3>
+                            <br>
+                            <br> 
+                            <div class="div-container" style="display: flex">
+                                <div class="info-prod">
+                                    <table>
+                                        <tr>
+                                            <th>Pret</th>
+                                            <th>Culoare</th>
+                                            <th>Flori componente</th>
+                                            <th>Data adaugare</th>
+                                            <th>Pentru alergici</th>
+                                        </tr>
+                                        <tr>
+                                            <td class="val-pret"><%- prod.pret%></td>
+                                            <td class="val-culoare"><%- prod.culoare%></td>
+                                            <td class="val-flori_componente"><%- prod.flori_componente%></td>
+                                            <td><time class="val-data_adaugare"><%- prod.data_adaugare%></time></td>
+                                            <td class="val-pt_alergici"><%- prod.pt_alergici%></td>
+                                        </tr>
+                                    </table>
+                                    <div class="ecran-mic">
+                                        <p class="val-pret">Pret: <%- prod.pret%></p>
+                                        <p class="val-culoare">Culoare: <%- prod.culoare%></p>
+                                        <p class="val-flori_componente">Flori componente: <%- prod.flori_componente%></p>
+                                        <p><time class="val-data_adaugare">Data adaugare: <%- prod.data_adaugare%></time></p>
+                                        <p class="val-pt_alergici">Pentru alergici: <%- prod.pt_alergici%></p>
+                                    </div>
+                                    <p class="descriere">Descriere: <span class="val-descriere"><%- prod.descriere%></span></p>
+                                    <p class="tip_produs">Categorie: <span class="val-tip_produs"><%- prod.tip_produs %></span></p>
+                                    <p class="categorie">Tip eveniment: <span class="val-categorie"><%- prod.categorie %></span></p>
+                                    <p class="nr_fire">Numar fire: <span class="val-nr_fire"><%- prod.nr_fire %></span></p>
+                                </div>
+                                <figure>
+                                    <a href="/produs/<%-prod.id %>" style="border:none;background:transparent;"><img class="imag-produs" src="/Resurse/imagini/produse/<%- prod.imagine %>" style="width:15vw;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
+                                </figure>
+                            </div>
+                            <label class="selecteaza-cos">
+                                Selectează:
+                                <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
+                            </label>
+                        </article>
+                    <% }%>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <%- include("../fragmente/footer.ejs") %>
+        </footer>
+    </body>
+</html>

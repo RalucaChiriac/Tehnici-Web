@@ -9,7 +9,7 @@
 			"autor": "Autor: José León pe Unsplash"
 		},
 		{
-			"fisier":"lalele.png",
+			"fisier":"lalea.png",
 			"titlu":"Lalele multicolore",
             "descriere":"Lalelele au culori vibrante si foarte variate !",
 			"sfert_ora":"1 2 4"	
@@ -57,38 +57,38 @@
             "sfert_ora":"1 3 4"
 		},
         {
-			"fisier":"ghiocel.png",
+			"fisier":"narcisa.png",
 			"titlu":"Narcisa",
             "descriere":"Narcisele aduc o nota proaspata si delicata !",
             "sfert_ora":"1 3 4"
 		},
 		{
-			"fisier":"ghiocel.png",
-			"titlu":"Narcisa",
+			"fisier":"crin.png",
+			"titlu":"Crin",
+            "descriere":"Crinii au un miros foarte parfumat!",
+            "sfert_ora":"2 3"
+		},
+		{
+			"fisier":"margareta.png",
+			"titlu":"Margareta",
             "descriere":"Narcisele aduc o nota proaspata si delicata !",
             "sfert_ora":"2 3"
 		},
 		{
-			"fisier":"ghiocel.png",
-			"titlu":"Narcisa",
-            "descriere":"Narcisele aduc o nota proaspata si delicata !",
+			"fisier":"primula.png",
+			"titlu":"Primula",
+            "descriere":"Primulele au culori variate !",
             "sfert_ora":"2 3"
 		},
 		{
-			"fisier":"ghiocel.png",
-			"titlu":"Narcisa",
-            "descriere":"Narcisele aduc o nota proaspata si delicata !",
+			"fisier":"mac.png",
+			"titlu":"Mac",
+            "descriere":" Macii au doar culoarea rosu aprins !",
             "sfert_ora":"2 3"
 		},
 		{
-			"fisier":"ghiocel.png",
-			"titlu":"Narcisa",
-            "descriere":"Narcisele aduc o nota proaspata si delicata !",
-            "sfert_ora":"2 3"
-		},
-		{
-			"fisier":"ghiocel.png",
-			"titlu":"Narcisa",
+			"fisier":"cala.png",
+			"titlu":"Cala",
             "descriere":"Narcisele aduc o nota proaspata si delicata !",
             "sfert_ora":"2 3"
 		}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <%- include("../fragmente/head") %>     
+        <link href="/Resurse/css/produs.css" type="text/css" rel="stylesheet" />
+        <script src="/Resurse/js/produs.js"></script>
+    </head>
+    <body>
+        <header>
+            <%- include("../fragmente/header") %>
+        </header>
+
+        <main>
+            <section id="produs-unic">
+                <h2>Pagină produs</h2>
+                    <article id="art-produs">
+                        <h3><span class="nume"><%- locals.prod.nume %></span></h3>
+                        <div class="div-container" style="display: flex;">
+                            <div>
+                                <p>Pret: <span class="pret"><%- locals.prod.pret %> </span></p>
+                                <p>Descriere: <span class="descriere"><%- locals.prod.descriere %> </span></p>
+                                <p>Flori componente: <span class="flori_componente"><%- locals.prod.flori_componente %> </span></p>
+                                <p>Numar fire: <span class="nr_fire"><%- locals.prod.nr_fire %> </span></p>
+                                <p>Tip produs: <span class="tip_produs"><%- locals.prod.tip_produs %> </span></p>
+                                <p>Categorie: <span class="categorie"><%- locals.prod.categorie %> </span></p>
+                                <p>Pentru alergici: <span class="pt_alergici"><%- locals.prod.pt_alergici %> </span></p>
+                                <p>Data adaugare: <span class="data_adaugare"><%- locals.prod.data_adaugare %> </span></p>
+                                <p>Culoare: <span class="culoare"><%- locals.prod.culoare %> </span></p>
+                            </div>
+                            <figure class="imag-produs">
+                                <img src="/Resurse/imagini/produse/<%- locals.prod.imagine %>" class="imag-produs" alt="[imagine <%- locals.prod.nume %>]" />
+                            </figure>
+                        </div>
+                    </article>
+            </section>
+        </main>
+        <footer>
+            <%- include("../fragmente/footer") %>
+        </footer>
+    </body>
+</html>

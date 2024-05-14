@@ -13,7 +13,7 @@
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
     background: rgb(255, 182, 193);
-    color: purple;
+    color: purple !important;
     text-decoration: none;
     font-size: 2em;
     border-color: transparent;
