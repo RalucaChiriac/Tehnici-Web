@@ -15,11 +15,6 @@ table td, table th {
     color: var(--culoare-deschisa);
 }
 
-.produs img {
-    border: 5px double var(--culoare-deschisa);
-    margin-left: 20px;
-}
-
 #produse, #filtre {
     margin-left: 25px;
 }
@@ -36,10 +31,10 @@ table td, table th {
     .div-container {
         display: block !important;
     }
-    .produs img {
+    /* .produs img {
         margin-left: 0 !important;
         width: 300px !important;
-    }
+    } */
 }
 
 @media (max-width: 800px) {
@@ -71,3 +66,25 @@ input[type="checkbox"]:checked~label, input[type="radio"]:checked~label{
     background-color: var(--roz-deschis);
     color: var(--culoare-deschisa);
 }
+
+input[type="checkbox"]~.bi-square{
+    cursor: pointer;
+}
+
+.bi-check-square{
+    display: none;
+}
+
+input[type="checkbox"]:checked~.bi-check-square{
+    display: inline !important;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked~.bi-square{
+    display: none !important;
+}
+
+.c1 {
+    width: 300px;
+}
+

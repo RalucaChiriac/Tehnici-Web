@@ -5,7 +5,13 @@
     color: var(--culoare-deschisa);
 }
 
-#produs-unic {
+.prod-similar {
+    background-color: var(--caramiziu);
+    padding: 10px;
+    color: var(--culoare-deschisa);
+}
+
+#produs-unic, #section-prod-similare {
     margin-left: 25px;
 }
 

@@ -29,62 +29,24 @@
                     </div>
     
                     <div class="col"> Flori componente
-                        <div class="row">
-                            <p class="col">
-                                <input id="i_ch1"  name="gr_ch" value="primule" type="checkbox" checked/>
-                                <label for="i_ch1" class="btn btn-outline-primary mb-1">primule</label>
-                            </p>
-                            <p class="col">
-                                <input id="i_ch2"  name="gr_ch" value="zambile" type="checkbox" checked/>
-                                <label for="i_ch2" class="btn btn-outline-primary mb-1">zambile</label>
-                            </p>
-                            <p class="col">
-                                <input id="i_ch3"  name="gr_ch" value="crini" type="checkbox" checked/>
-                                <label for="i_ch3" class="btn btn-outline-primary mb-1">crini</label>
-                            </p>
-                        </div>
-                        <div class="row">
-                            <p class="col">
-                                <input id="i_ch5"  name="gr_ch" value="hortensie" type="checkbox" checked/>
-                                <label for="i_ch5" class="btn btn-outline-primary mb-1">hortensie</label>
-                            </p>
-                            <p class="col">
-                                <input id="i_ch6"  name="gr_ch" value="frezii" type="checkbox" checked/>
-                                <label for="i_ch6" class="btn btn-outline-primary mb-1">frezii</label>
-                            </p>
-                            <p class="col">
-                                <input id="i_ch7"  name="gr_ch" value="ghiocei" type="checkbox" checked/>
-                                <label for="i_ch7" class="btn btn-outline-primary mb-1">ghiocei</label>
-                            </p>
-                        </div>
-                        <div class="row">
-                            <p class="col">
-                                <input id="i_ch8"  name="gr_ch" value="bujori" type="checkbox" checked/>
-                                <label for="i_ch8" class="btn btn-outline-primary mb-1">bujori</label>
-                            </p>
-                            <p class="col">
-                                <input id="i_ch9"  name="gr_ch" value="lalele" type="checkbox" checked/>
-                                <label for="i_ch9" class="btn btn-outline-primary mb-1">lalele</label>
-                            </p>
-                            <p class="col">
-                                <input id="i_ch10"  name="gr_ch" value="narcisa" type="checkbox" checked/>
-                                <label for="i_ch10" class="btn btn-outline-primary mb-1">narcisa</label>
-                            </p>
-                        </div>
-                        <div class="row">
-                            <p class="col">
-                                <input id="i_ch11"  name="gr_ch" value="trandafiri" type="checkbox" checked/>
-                                <label for="i_ch11" class="btn btn-outline-primary mb-1">trandafiri</label>
-                            </p>
-                            <p class="col">
-                                <input id="i_ch4"  name="gr_ch" value="floarea-soarelui" type="checkbox" checked/>
-                                <label for="i_ch4" class="btn btn-outline-primary mb-1">floarea-soarelui</label>
-                            </p>
-                        </div>
+                        <% for(let i = 0; i < locals.componente.length; i++) {
+                                if(i % 3 == 0 || i == 0) {
+                        %>
+                                    <div class="row">
+                        <%      } %>
+                                        <p class="col">
+                                            <input id="i_ch<%- i %>"  name="gr_ch" value="<%- locals.componente[i] %>" type="checkbox" checked/>
+                                            <label for="i_ch<%- i %>" class="btn btn-outline-primary mb-1"><%- locals.componente[i] %></label>
+                                        </p>
+                        <%      if((i % 3 === 2) || i === locals.componente.length - 1) { %>
+                                    </div>
+                        <%      }
+                            }
+                        %>
                     </div>
                     
                     <div class="col">
-                        <label for="inp-pret">Pret minim <br> 0 <input type="range" class="form-range w-50" id="inp-pret" value="0" min="0" max="500" step="10"> 500 <span id="infoRange">(0)</span> </label>
+                        <label for="inp-pret">Pret minim <br> <%- parseInt(locals.minPret) %> <input type="range" class="form-range w-50" id="inp-pret" value="<%- locals.minPret %>" min="<%- locals.minPret %>" max="<%- locals.maxPret %>"> <%- parseInt(locals.maxPret) %> <span id="infoRange">(<%- parseInt(locals.minPret) %>)</span> </label>
                     </div>
                 </div>
                 
@@ -92,15 +54,12 @@
                     <label class="col">Culoare
                         <br>
                         <select id="inp-culoare" multiple size="4" class="form-select w-75">
+                            <% 
+                                for(let i = 0; i < locals.culori.length; i++) {
+                            %>
+                                    <option value="<%- locals.culori[i].culori %>"><%- locals.culori[i].culori %></option>
+                            <% } %>
                             <option id="sel-mult-toate" selected value="toate">toate</option>
-                            <option value="rosu">rosu</option>
-                            <option value="galben">galben</option>
-                            <option value="roz">roz</option>
-                            <option value="lila">lila</option>
-                            <option value="albastru">albastru</option>
-                            <option value="portocaliu">portocaliu</option>
-                            <option value="alb">alb</option>
-                            <option value="mov">mov</option>
                         </select>
                     </label>
     
@@ -108,26 +67,26 @@
                         <label for="inp-categorie">Tip eveniment</label>
                         <input list="categorie" id="inp-categorie" class="form-control w-75">
                         <datalist id="categorie">
-                            <option value="comanda speciala">comanda special</option>
-                            <option value="aniversara">aniversara</option>
-                            <option value="editie limitata">editie limitata</option>
-                            <option value="nunta">nunta</option>
-                            <option value="botez">botez</option>
+                            <% 
+                                for(let i = 0; i < locals.evenimente.length; i++) { 
+                            %>
+                                <option value="<%- locals.evenimente[i].evenimente %>"><%- locals.evenimente[i].evenimente %></option>
+                            <% } %>
                         </datalist>
                     </div>
     
                     <div class="col">Pentru alergici
-                        <p>
-                            <input id="i_rad1" name="gr_rad" value="da" type="radio"/>
-                            <label for="i_rad1" class="btn btn-outline-primary mb-1">Da</label>
-                        </p>
-                        <p>
-                            <input id="i_rad2"  name="gr_rad" value="nu" type="radio"/>
-                            <label for="i_rad2" class="btn btn-outline-primary mb-1">Nu</label>
-                        </p>
+                        <% 
+                            for(let i = 0; i < locals.valoriAlergici.length; i++) { 
+                        %>
+                            <p>
+                                <input id="i_rad<%- i + 1 %>" name="gr_rad" value="<%- locals.valoriAlergici[i] %>" type="radio"/>
+                                <label for="i_rad<%- i + 1 %>" class="btn btn-outline-primary mb-1"><%- locals.valoriAlergici[i] %></label>
+                            </p>
+                        <% } %>
                         <p>
                             <input id="i_rad3"  name="gr_rad" value="oricare" type="radio" checked/>
-                            <label for="i_rad3" class="btn btn-outline-primary mb-1">Oricare</label>
+                            <label for="i_rad3" class="btn btn-outline-primary mb-1">oricare</label>
                         </p>
                     </div>
     
@@ -135,9 +94,9 @@
                         <br>
                         <select id="inp-nr_fire" class="form-select w-75">
                             <option id="sel-toate" selected value="oricate">oricate</option>
-                            <option value="1:20">1 - 20</option>
+                            <option value="<%-minFire%>:20"><%-minFire%> - 20</option>
                             <option value="21:50">21 - 50</option>
-                            <option value="51:101">51 - 101</option>
+                            <option value="51:<%-maxFire%>">51 - <%-maxFire%></option>
                         </select>
                     </label>
                 </div>
@@ -153,14 +112,20 @@
 
                 <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate.</p>
             </div>
+
+
             <section id="produse">
                 <h2>Produse</h2>
+                <div id="no-products-message" style="display: none;">Nu sunt produse care să corespundă filtrelor.</div>
                 <div class="grid-produse">
-                    <% for(let prod of locals.produse) { %>
+                    <% 
+                        let count = 0;
+                        for(let prod of locals.produse) { 
+                    %>
                         <article class="produs" class="<%-prod.tip_produs%>" id="ent<%-prod.id%>">
                             <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" style="color: var(--culoare-deschisa) !important;"><span class="val-nume"><%- prod.nume%></span></a></h3>
                             <br>
-                            <br> 
+                            <br>
                             <div class="div-container" style="display: flex">
                                 <div class="info-prod">
                                     <table>
@@ -191,16 +156,38 @@
                                     <p class="categorie">Tip eveniment: <span class="val-categorie"><%- prod.categorie %></span></p>
                                     <p class="nr_fire">Numar fire: <span class="val-nr_fire"><%- prod.nr_fire %></span></p>
                                 </div>
-                                <figure>
-                                    <a href="/produs/<%-prod.id %>" style="border:none;background:transparent;"><img class="imag-produs" src="/Resurse/imagini/produse/<%- prod.imagine %>" style="width:15vw;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
-                                </figure>
+                                <div id="carousel<%- prod.id %>" class="carousel slide c1" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <% for(let i = 0; i < locals.imagini_produse[count].length; i++) { %>
+                                                <div class="carousel-item carousel <%- i == 0 ? "active" : "" %>">
+                                                    <img class="d-block w-100" src="/Resurse/imagini/produse/<%- prod.imagine %>/<%- locals.imagini_produse[count][i] %>" alt="[imagine <%- prod.nume %>]">
+                                                </div>
+                                        <% } %>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel<%- prod.id %>" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carousel<%- prod.id %>" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
                             </div>
+                            <% if(minPriceProductIds.includes(prod.id)) { %>
+                                <p class="text-success"><b>Acest produs este cel mai ieftin din categoria <%-prod.tip_produs%></b></p>
+                            <% } %>
+                            <p class="d-inline">Adauga in cos: </p>
                             <label class="selecteaza-cos">
-                                Selectează:
                                 <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
+                                <i style="display: none;" class="bi bi-check-square"></i>
+                                <i class="bi bi-square"></i>
                             </label>
                         </article>
-                    <% }%>
+                    <% 
+                        count++;
+                    }
+                    %>
                 </div>
             </section>
         </main>

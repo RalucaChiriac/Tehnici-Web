@@ -13,26 +13,55 @@
         <main>
             <section id="produs-unic">
                 <h2>Pagină produs</h2>
-                    <article id="art-produs">
-                        <h3><span class="nume"><%- locals.prod.nume %></span></h3>
-                        <div class="div-container" style="display: flex;">
-                            <div>
-                                <p>Pret: <span class="pret"><%- locals.prod.pret %> </span></p>
-                                <p>Descriere: <span class="descriere"><%- locals.prod.descriere %> </span></p>
-                                <p>Flori componente: <span class="flori_componente"><%- locals.prod.flori_componente %> </span></p>
-                                <p>Numar fire: <span class="nr_fire"><%- locals.prod.nr_fire %> </span></p>
-                                <p>Tip produs: <span class="tip_produs"><%- locals.prod.tip_produs %> </span></p>
-                                <p>Categorie: <span class="categorie"><%- locals.prod.categorie %> </span></p>
-                                <p>Pentru alergici: <span class="pt_alergici"><%- locals.prod.pt_alergici %> </span></p>
-                                <p>Data adaugare: <span class="data_adaugare"><%- locals.prod.data_adaugare %> </span></p>
-                                <p>Culoare: <span class="culoare"><%- locals.prod.culoare %> </span></p>
-                            </div>
-                            <figure class="imag-produs">
-                                <img src="/Resurse/imagini/produse/<%- locals.prod.imagine %>" class="imag-produs" alt="[imagine <%- locals.prod.nume %>]" />
-                            </figure>
+                <article id="art-produs">
+                    <h3><span class="nume"><%- locals.prod.nume %></span></h3>
+                    <div class="div-container" style="display: flex;">
+                        <div>
+                            <p>Pret: <span class="pret"><%- locals.prod.pret %> </span></p>
+                            <p>Descriere: <span class="descriere"><%- locals.prod.descriere %> </span></p>
+                            <p>Flori componente: <span class="flori_componente"><%- locals.prod.flori_componente %> </span></p>
+                            <p>Numar fire: <span class="nr_fire"><%- locals.prod.nr_fire %> </span></p>
+                            <p>Tip produs: <span class="tip_produs"><%- locals.prod.tip_produs %> </span></p>
+                            <p>Categorie: <span class="categorie"><%- locals.prod.categorie %> </span></p>
+                            <p>Pentru alergici: <span class="pt_alergici"><%- locals.prod.pt_alergici %> </span></p>
+                            <p>Data adaugare: <span class="data_adaugare"><%- locals.prod.data_adaugare %> </span></p>
+                            <p>Culoare: <span class="culoare"><%- locals.prod.culoare %> </span></p>
                         </div>
-                    </article>
+                        <figure class="imag-produs">
+                            <img src="/Resurse/imagini/produse/<%- locals.prod.imagine %>/<%- locals.imagineProdCurent %>" class="imag-produs" alt="[imagine <%- locals.prod.nume %>]" />
+                        </figure>
+                    </div>
+                </article>
             </section>
+            <section id="section-prod-similare">
+                <h2>Produse avand acceasi categorie de evenimente</h2>
+                <% 
+                    let count = 0;
+                    for(let prod_similar of locals.produse_relevante) { 
+                        if(count % 3 == 0) { 
+                %>
+                            <div class="row w-100">
+                <% 
+                        } 
+                %>
+                        <article class="prod-similar col">
+                            <h3><span class="nume"><%- prod_similar.nume %></span></h3>
+                            <figure class="imag-produs">
+                                <img src="/Resurse/imagini/produse/<%- prod_similar.imagine %>/<%- locals.imaginiProd[count] %>" alt="[imagine <%- prod_similar.nume %>]" style="margin-right: 20px; border-radius: 20px;"/>
+                            </figure>
+                            <p>Pret: <span class="pret"><%- prod_similar.pret %> RON</span></p>
+                            <p>Descriere: <span class="descriere"><%- prod_similar.descriere %></span></p>
+                        </article>
+                <% 
+                        count++;
+                        if(count % 3 == 0 || count == locals.produse_relevante.length) { 
+                %>
+                            </div>
+                <% 
+                        }
+                    } 
+                %>
+            </section>            
         </main>
         <footer>
             <%- include("../fragmente/footer") %>
